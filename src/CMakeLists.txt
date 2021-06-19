@@ -4,3 +4,9 @@ add_executable(proj main.cpp lib.cpp)
 target_link_libraries(proj_test PUBLIC doctest::doctest default)
 target_link_libraries(proj PUBLIC doctest::doctest default)
 doctest_discover_tests(proj_test)
+
+
+set (SFML_STATIC_LIBRARIES TRUE)
+find_package (SFML COMPONENTS graphics window system)
+target_link_libraries (proj PUBLIC sfml-graphics sfml-window)
+target_link_libraries(proj_test PUBLIC sfml-graphics sfml-window)
